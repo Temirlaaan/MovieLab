@@ -2,55 +2,34 @@ package com.example.movielab
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI.setupWithNavController
+import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.movielab.databinding.ActivityMainBinding
+import com.example.movielab.navigation.MovieFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
+
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setupView()
-        bottomNav()
+
+        binding= ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        navController=Navigation.findNavController(this,R.id.activity_main_nav_host_fragment)
+        setupWithNavController(binding.bottomNavigationView,navController)
     }
 
-    private fun setupView() {
-        val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
-        val viewPager = findViewById<ViewPager2>(R.id.viewPager)
 
-        viewPager.adapter = PagerAdapter(lifecycle, supportFragmentManager)
-
-        TabLayoutMediator(
-            tabLayout,
-            viewPager,
-            TabLayoutMediator.TabConfigurationStrategy { tab, position ->
-                when(position) {
-                    0 -> tab.text = "Coming Soon"
-                    1 -> tab.text = "Popular Movies"
-                }
-            }
-        ).attach()
-    }
-
-    fun bottomNav(){
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.navigation_bar)
-        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.moviesFragment -> {
-                    // Handle home menu item click
-                    true
-                }
-                R.id.genresFragment -> {
-                    // Handle search menu item click
-                    true
-                }
-                R.id.savesFragment -> {
-                    // Handle notifications menu item click
-                    true
-                }
-                else -> false
-            }
-        }
-    }
 }
+
+
+

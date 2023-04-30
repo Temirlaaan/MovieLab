@@ -4,6 +4,12 @@ plugins {
 }
 
 android {
+
+    buildFeatures{
+        dataBinding = true
+        viewBinding = true
+    }
+
     namespace 'com.example.movielab'
     compileSdk 33
 
@@ -43,7 +49,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     //navigation
-    implementation "androidx.navigation:navigation-runtime-ktx:2.3.0"
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.0"
-    implementation "androidx.navigation:navigation-ui-ktx:2.3.0"
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
+    implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
 }

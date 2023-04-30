@@ -13,10 +13,10 @@
         android:layout_height="48dp"
         android:overScrollMode="never"
         android:background="@drawable/tab_bc_curved"
-        app:tabIndicator="@color/white"
+        app:tabIndicator="@color/yellow"
         app:tabIndicatorFullWidth="true"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/white"
+        app:tabSelectedTextColor="@color/yellow"
         app:tabTextColor="@color/yellow"/>
 
     <androidx.viewpager2.widget.ViewPager2

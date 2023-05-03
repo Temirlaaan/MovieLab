@@ -5,8 +5,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.movielab.ComingSoon.ComingSoonFragment
-import com.example.movielab.Popular.PopularFragment
+import com.example.movielab.comingSoon.ComingSoonFragment
+import com.example.movielab.popular.PopularFragment
 
 class PagerAdapter(
     lifecycle: Lifecycle,

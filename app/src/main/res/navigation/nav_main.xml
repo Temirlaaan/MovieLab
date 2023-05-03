@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/moviesFragment"
-        android:name="com.example.movielab.navigation.MovieFragment"
+        android:name="com.example.movielab.movie.MovieFragment"
         android:label="fragment_movies"
         tools:layout="@layout/fragment_movies"/>
 
     <fragment
         android:id="@+id/genresFragment"
-        android:name="com.example.movielab.navigation.GenresFragment"
+        android:name="com.example.movielab.genre.GenresFragment"
         android:label="fragment_genres"
         tools:layout="@layout/fragment_genres" />
 
     <fragment
         android:id="@+id/savesFragment"
-        android:name="com.example.movielab.navigation.SavedFragment"
+        android:name="com.example.movielab.save.SavedFragment"
         android:label="fragment_saves"
         tools:layout="@layout/fragment_saves" />
 

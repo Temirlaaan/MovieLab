@@ -1,4 +1,4 @@
-package com.example.movielab.navigation
+package com.example.movielab.movie
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,12 +19,12 @@ class MovieFragment: Fragment(R.layout.fragment_movies) {
     private lateinit var tabLayout: TabLayout
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupView()
+        setupView(view)
     }
-    private fun setupView() {
+    private fun setupView(view: View) {
 
-        viewPager = view!!.findViewById<ViewPager2>(R.id.viewPager)
-        tabLayout = view!!.findViewById(R.id.tabLayout)
+        viewPager = view.findViewById<ViewPager2>(R.id.viewPager)
+        tabLayout = view.findViewById(R.id.tabLayout)
 
         viewPager.adapter = PagerAdapter(lifecycle, childFragmentManager)
 

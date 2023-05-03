@@ -1,4 +1,4 @@
-package com.example.movielab.navigation
+package com.example.movielab.genre
 
 import androidx.fragment.app.Fragment
 import com.example.movielab.R

@@ -1,4 +1,4 @@
-package com.example.movielab.Popular
+package com.example.movielab.popular
 
 import androidx.fragment.app.Fragment
 import com.example.movielab.R

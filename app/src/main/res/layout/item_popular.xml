@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemViewGroup"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/dark_gray"
+    android:padding="16dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/movie_poster"
+        android:layout_width="80dp"
+        android:layout_height="120dp"
+        android:src="@drawable/poster_placeholder"
+        android:background="@drawable/curved"
+        android:elevation="50dp"
+        android:scaleType="fitCenter"/>
+
+    <TextView
+        android:id="@+id/movie_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/movie_poster"
+        android:layout_marginLeft="15dp"
+        android:text="Movie Title"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/movie_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/movie_title"
+        android:text="7.0"
+        android:layout_toRightOf="@id/movie_poster"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/movie_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/movie_rating"
+        android:layout_toRightOf="@id/movie_poster"
+        android:text="2023"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/movie_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/movie_date"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/movie_poster"
+        android:text="ENG"
+        android:layout_marginTop="8dp"/>
+
+</RelativeLayout>

@@ -18,6 +18,8 @@ data class PopularMovieListResponse(
         @SerializedName("title")
         val title: String, // Doctor Strange in the Multiverse of Madness
         @SerializedName("vote_average")
-        val voteAverage: Double, // 7.5
+        val voteAverage: Double,
+
+        val overview: String// 7.5
     )
 }

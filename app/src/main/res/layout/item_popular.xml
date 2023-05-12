@@ -4,7 +4,6 @@
     android:id="@+id/itemViewGroup"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/dark_gray"
     android:padding="16dp">
 
     <androidx.appcompat.widget.AppCompatImageView

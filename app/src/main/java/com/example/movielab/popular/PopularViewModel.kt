@@ -31,7 +31,9 @@ class PopularViewModel(
                                 title = it.title,
                                 releaseDate = it.releaseDate,
                                 rating = it.voteAverage,
-                                posterURL = it.posterPath
+                                posterURL = it.posterPath,
+                                overview = it.overview,
+                                lang = it.originalLanguage
                             )
                         )
                     }

@@ -1,191 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detailViewGroup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:titleTextColor="@android:color/white"
+        app:navigationIcon="@drawable/baseline_arrow_back_24"
+        app:contentInsetStartWithNavigation="0dp"
+        app:menu="@menu/menu_favourite"/>
 
-        <ScrollView
-            android:layout_height="match_parent"
-            android:layout_width="match_parent">
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/poster"
+            android:layout_width="150dp"
+            android:background="@drawable/poster_placeholder"
+            android:layout_below="@+id/toolbar"
+            android:layout_height="225dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop" />
 
-            <LinearLayout
-                android:id="@+id/linearlayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/iv_movie_poster"
-                    android:layout_width="match_parent"
-                    android:layout_height="500dp"
-                    android:layout_gravity="center"
-                    android:scaleType="matrix"
-                    android:src="@drawable/poster_placeholder"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/poster"
+            android:layout_below="@+id/toolbar"
+            android:text="Pirates of the Caribbean"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_margin="8dp">
+    <RelativeLayout
+        android:id="@+id/releaseDate_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_toEndOf="@+id/poster"
+        android:layout_alignBaseline="@+id/release_date"
+        tools:ignore="NotSibling">
 
-                    <TextView
-                        android:id="@+id/movie_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="movie"
-                        android:textStyle="bold"
-                        android:textSize="18sp"/>
+        <ImageView
+            android:id="@+id/date_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_baseline_date_range_24" />
 
-                    <TextView
-                        android:id="@+id/movie_tagline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="sub title"
-                        android:textStyle="bold"
-                        android:textSize="14sp"/>
+        <TextView
+            android:id="@+id/release_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2002"
+            android:layout_toEndOf="@+id/date_icon"
+            android:textColor="@android:color/darker_gray" />
+    </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Movie Info"
-                        android:textStyle="bold"
-                        android:layout_marginTop="15dp"
-                        android:textSize="14sp"/>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+    <RelativeLayout
+        android:id="@+id/rating_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/releaseDate_layout"
+        android:layout_toEndOf="@+id/poster"
+        android:layout_alignBaseline="@+id/rating"
+        tools:ignore="NotSibling">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="ReleaseDate: "
-                            android:textStyle="bold"
-                            android:textSize="12sp"/>
+        <ImageView
+            android:id="@+id/small_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_round_star_24" />
 
-                        <TextView
-                            android:id="@+id/movie_release_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2023"
-                            android:layout_marginTop="2dp"
-                            android:textSize="12sp"/>
-                    </LinearLayout>
+        <TextView
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9.9"
+            android:layout_toEndOf="@+id/small_icon"
+            android:textColor="@android:color/darker_gray" />
+    </RelativeLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+    <RelativeLayout
+        android:id="@+id/lang_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rating_layout"
+        android:layout_toEndOf="@+id/poster"
+        android:layout_alignBaseline="@+id/rating"
+        tools:ignore="NotSibling">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Rating: "
-                            android:textStyle="bold"
-                            android:textSize="12sp"/>
+        <ImageView
+            android:id="@+id/lang_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_baseline_language_24" />
 
-                        <TextView
-                            android:id="@+id/movie_rating"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="10"
-                            android:layout_marginTop="2dp"
-                            android:textSize="12sp"/>
-                    </LinearLayout>
+        <TextView
+            android:id="@+id/lang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/lang_icon"
+            android:text="ENG"
+            android:textColor="@android:color/darker_gray"
+            tools:ignore="NotSibling" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+    </RelativeLayout>
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/poster"
+            android:layout_marginTop="16dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Runtime: "
-                            android:textStyle="bold"
-                            android:textSize="12sp"/>
 
-                        <TextView
-                            android:id="@+id/movie_runtime"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="3.0 hours"
-                            android:layout_marginTop="2dp"
-                            android:textSize="12sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Budget: "
-                            android:textStyle="bold"
-                            android:textSize="12sp"/>
-
-                        <TextView
-                            android:id="@+id/movie_budget"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="125 000 000"
-                            android:layout_marginTop="2dp"
-                            android:textSize="12sp"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Revenue: "
-                            android:textStyle="bold"
-                            android:textSize="12sp"/>
-
-                        <TextView
-                            android:id="@+id/movie_revenue"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="125 000 000"
-                            android:layout_marginTop="2dp"
-                            android:textSize="12sp"/>
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="Overview: "
-                        android:textStyle="bold"
-                        android:textSize="12sp"/>
-
-                    <TextView
-                        android:id="@+id/movie_overview"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="overview......"
-                        android:layout_marginTop="2dp"
-                        android:textSize="12sp"/>
-
-                </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>

@@ -1,5 +1,7 @@
 package com.example.movielab.popular
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,17 +12,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movielab.R
 import com.example.movielab.network.POSTER_BASE_URL
+import com.example.movielab.popular.detail.PopularDetailActivity
 import com.example.movielab.popular.model.Popular
 
 class PopularRecyclerAdapter(
     private val item: List<Popular>,
-    private val onItemClickListener:(Popular) -> Unit
-) : RecyclerView.Adapter<PopularRecyclerAdapter.ViewHolder>(){
+    private val onItemClickListener: (Popular) -> Unit
+) : RecyclerView.Adapter<PopularRecyclerAdapter.ViewHolder>() {
+
+    private lateinit var context: Context
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.item_popular, parent, false)
+        context = parent.context
         return ViewHolder(itemView)
     }
 
@@ -33,8 +40,7 @@ class PopularRecyclerAdapter(
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        lateinit var titleTextView: TextView
+        private lateinit var titleTextView: TextView
         lateinit var releaseDateView: TextView
         lateinit var rating: TextView
         lateinit var posterView: AppCompatImageView

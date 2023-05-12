@@ -35,10 +35,12 @@ class PopularFragment: Fragment(R.layout.fragment_popular) {
                 item = popularMovieList,
                 onItemClickListener = { popular ->
                     val intent = Intent(activity, PopularDetailActivity::class.java)
-                    intent.putExtra("id", popular)
+                    intent.putExtra("ARG_DETAIL", popular)
                     startActivity(intent)
                 }
             )
         }
     }
 }
+
+

@@ -1,35 +1,34 @@
-package com.example.movielab.popular
+package com.example.movielab.movie.comingSoon
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.movielab.movie.comingSoon.model.ComingSoon
 import com.example.movielab.network.ApiServices
-import com.example.movielab.network.PopularMovieListResponse
-import com.example.movielab.popular.model.Popular
+import com.example.movielab.network.Soon
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PopularViewModel(
+class ComingSoonViewModel(
     private val apiServices: ApiServices
 ): ViewModel() {
-    private val _basketDetailData = MutableLiveData<List<Popular>>()
-    val basketDetailData: LiveData<List<Popular>>
+    private val _basketDetailData = MutableLiveData<List<ComingSoon>>()
+    val basketDetailData: LiveData<List<ComingSoon>>
         get() = _basketDetailData
 
-    private val movieList = mutableListOf<Popular>()
+    private val movieList = mutableListOf<ComingSoon>()
 
-    fun loadMovieList(){
-        apiServices.getPopularMovie().enqueue(object : Callback<PopularMovieListResponse> {
-            override fun onResponse(call: Call<PopularMovieListResponse>, response: Response<PopularMovieListResponse>) {
+    fun loadSoonList(){
+        apiServices.getUpcomingMovie().enqueue(object : Callback<Soon> {
+            override fun onResponse(call: Call<Soon>, response: Response<Soon>) {
                 val responseSuccess = response.body()
-                responseSuccess?.let {Popular ->
-                    Popular.results.forEach {
+                responseSuccess?.let {ComingSoon ->
+                    ComingSoon.results.forEach {
                         movieList.add(
-                            Popular(
-                                id = it.id,
+                            ComingSoon(
                                 title = it.title,
-                                releaseDate = it.releaseDate,
+                                release_date = it.releaseDate,
                                 rating = it.voteAverage,
                                 posterURL = it.posterPath,
                                 overview = it.overview,
@@ -40,7 +39,7 @@ class PopularViewModel(
                 }
                 _basketDetailData.value = movieList
             }
-            override fun onFailure(call: Call<PopularMovieListResponse>, t: Throwable) {
+            override fun onFailure(call: Call<Soon>, t: Throwable) {
             }
         }
         )

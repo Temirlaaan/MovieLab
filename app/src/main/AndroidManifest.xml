@@ -24,7 +24,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".popular.detail.PopularDetailActivity"/>
+        <activity android:name=".movie.popular.detail.PopularDetailActivity"/>
+
+        <activity android:name=".movie.comingSoon.detail.ComingSoonDetailActivity"/>
     </application>
 
 </manifest>

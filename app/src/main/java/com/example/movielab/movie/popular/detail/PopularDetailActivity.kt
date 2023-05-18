@@ -1,4 +1,4 @@
-package com.example.movielab.popular.detail
+package com.example.movielab.movie.popular.detail
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.movielab.R
 import com.example.movielab.network.POSTER_BASE_URL
-import com.example.movielab.popular.model.Popular
+import com.example.movielab.movie.popular.model.Popular
 
 class PopularDetailActivity: AppCompatActivity() {
     var popular: Popular? = null

@@ -1,4 +1,4 @@
-package com.example.movielab.popular
+package com.example.movielab.movie.popular
 
 import android.content.Context
 import android.content.Intent
@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movielab.R
 import com.example.movielab.network.POSTER_BASE_URL
-import com.example.movielab.popular.detail.PopularDetailActivity
-import com.example.movielab.popular.model.Popular
+import com.example.movielab.movie.popular.detail.PopularDetailActivity
+import com.example.movielab.movie.popular.model.Popular
 
 class PopularRecyclerAdapter(
     private val item: List<Popular>,

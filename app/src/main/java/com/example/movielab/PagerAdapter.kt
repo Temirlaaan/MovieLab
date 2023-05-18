@@ -5,8 +5,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.movielab.comingSoon.ComingSoonFragment
-import com.example.movielab.popular.PopularFragment
+import com.example.movielab.movie.comingSoon.ComingSoonFragment
+import com.example.movielab.movie.popular.PopularFragment
 
 class PagerAdapter(
     lifecycle: Lifecycle,
@@ -23,7 +23,7 @@ class PagerAdapter(
 
     override fun createFragment(position: Int): Fragment{
         return when(position){
-            0->ComingSoonFragment()
+            0-> ComingSoonFragment()
             else -> PopularFragment()
         }
     }

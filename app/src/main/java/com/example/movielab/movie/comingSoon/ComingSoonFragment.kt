@@ -1,4 +1,4 @@
-package com.example.movielab.popular
+package com.example.movielab.movie.comingSoon
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,12 +7,15 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movielab.R
-import com.example.movielab.popular.detail.PopularDetailActivity
+import com.example.movielab.movie.comingSoon.detail.ComingSoonDetailActivity
+import com.example.movielab.movie.popular.PopularRecyclerAdapter
+import com.example.movielab.movie.popular.PopularViewModel
+import com.example.movielab.movie.popular.detail.PopularDetailActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class PopularFragment: Fragment(R.layout.fragment_popular) {
+class ComingSoonFragment: Fragment(R.layout.fragment_coming_soon) {
 
-    private val viewModel by viewModel<PopularViewModel>()
+    private val viewModel by viewModel<ComingSoonViewModel>()
 
     private lateinit var recyclerView: RecyclerView
 
@@ -20,7 +23,7 @@ class PopularFragment: Fragment(R.layout.fragment_popular) {
         super.onViewCreated(view, savedInstanceState)
         setupView(view)
         observeViewModel()
-        viewModel.loadMovieList()
+        viewModel.loadSoonList()
     }
 
     private fun setupView(view: View){
@@ -31,11 +34,11 @@ class PopularFragment: Fragment(R.layout.fragment_popular) {
     private fun observeViewModel() = with(viewModel){
 
         basketDetailData.observe(viewLifecycleOwner){ popularMovieList ->
-            recyclerView.adapter = PopularRecyclerAdapter(
+            recyclerView.adapter = ComingSoonRecyclerAdapter(
                 item = popularMovieList,
                 onItemClickListener = { popular ->
-                    val intent = Intent(activity, PopularDetailActivity::class.java)
-                    intent.putExtra("ARG_DETAIL", popular)
+                    val intent = Intent(activity, ComingSoonDetailActivity::class.java)
+                    intent.putExtra("ARG_DETAIL_SOON", popular)
                     startActivity(intent)
                 }
             )

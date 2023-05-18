@@ -9,4 +9,6 @@ interface ApiServices{
     @GET("movie/popular")
     fun getPopularMovie(): Call<PopularMovieListResponse>
 
+    @GET("movie/upcoming")
+    fun getUpcomingMovie(): Call<Soon>
 }
